@@ -27,7 +27,7 @@ public class NotesController {
     public NotesController(NotesService notesService) {
         this.notesService = notesService;
     }
-
+   
     @GetMapping("/list_notes")
     public List<Notes> getAllNotes() {
         return notesService.getAllNotes();
