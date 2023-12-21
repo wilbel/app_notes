@@ -18,11 +18,9 @@ public class Notes {
     @ManyToOne
     @JoinColumn(name="id_user",nullable = false)
     private Users users;
-    //private int id_user;
     @ManyToOne
     @JoinColumn(name="id_category",nullable = false)
     private Category category;
-     // private int id_category;
     private String title;
     private String description;
     private Date date;

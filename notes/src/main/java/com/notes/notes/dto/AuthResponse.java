@@ -1,5 +1,7 @@
 package com.notes.notes.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,4 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthResponse {
     String token;
+    private boolean success;
+    private List<String> errorMessages;
 }

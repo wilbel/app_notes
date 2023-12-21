@@ -65,7 +65,6 @@ public class NotesServiceImpl implements NotesService {
 
     @Override
     public String remember_date(String fecha_recordatorio) {
-        // Obtener fecha actual
         LocalDate fechaActual = LocalDate.now();
         return fechaActual + "";
     }
