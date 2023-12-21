@@ -30,6 +30,7 @@ public class validations implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "field.required", "El apellido es obligatorio");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "field.required",
                 "El correo electrónico es obligatorio");
+       // ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rol", "field.required", "Rol es requerido");
 
         if (!isValidEmail(registerRequest.getEmail())) {
             errors.rejectValue("email", "invalid.email", "El formato del correo electrónico no es válido");
