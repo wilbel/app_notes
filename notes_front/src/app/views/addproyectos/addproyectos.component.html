@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar">
+            <app-menu-user></app-menu-user>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+
+            <h2>Registrar Proyectos</h2>
+            <div class="alert alert-secondary" role="alert">
+                Ingresa los datos para registrar los proyectos.
+            </div>
+
+            <form [formGroup]="registerProyectoForm" (ngSubmit)="postRegisterProyectos(registerProyectoForm.value)">
+
+                <div class="row">
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputTitle" class="mb-2">Título</label>
+                        <input type="text" class="form-control" id="inputTitle" placeholder="Título"
+                            formControlName="title">
+                        <div *ngIf="registerProyectoForm?.get('title')?.hasError('required')" class="error-message">
+                            Titulo es requerido.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputPresupuesto" class="mb-2">Presupuesto</label>
+                        <input step="any" type="number" class="form-control" id="inputPresupuesto"
+                            placeholder="Presupuesto" formControlName="presupuesto">
+                        <div *ngIf="registerProyectoForm?.get('presupuesto')?.hasError('required')"
+                            class="error-message">
+                            Presupuesto es requerido.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-12 mt-2 mb-2">
+                        <label for="inputDescription" class="mb-2">Descripción</label>
+
+                        <textarea class="form-control" cols="10" rows="5" formControlName="description"
+                            placeholder="Descripción"></textarea>
+                        <div *ngIf="registerProyectoForm?.get('description')?.hasError('required')"
+                            class="error-message">
+                            Descripción es requerido.
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2 mb-2 btn-register">Registrar</button>
+            </form>
+            <br>
+            <div *ngIf="errorMessage" class="alert alert-primary" role="alert">
+                {{ errorMessage }}
+            </div>
+
+
+        </main>
+        <app-footer></app-footer>
+    </div>
+</div>

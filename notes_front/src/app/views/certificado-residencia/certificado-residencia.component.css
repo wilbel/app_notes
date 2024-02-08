@@ -1,0 +1,25 @@
+
+  .container-fluid>.row{
+    padding-top: 60px;
+
+  }
+
+  .btn-register{
+    background: #003d7a;
+    color: #ffffff;
+    border: 2px solid #003d7a;
+    width: 150px;
+
+  }
+
+  form{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #bababa;
+  }
+
+  .form-control{
+    border: var(--bs-border-width) solid #585858;
+  }
+
+ 

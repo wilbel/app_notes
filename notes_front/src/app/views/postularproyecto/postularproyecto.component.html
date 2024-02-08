@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar">
+            <app-menu-user></app-menu-user>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+
+            <h2>Registrarse</h2>
+            <div class="alert alert-secondary" role="alert">
+                Completa los datos faltantes para poder postular a los proyectos. <a href="/">
+                    Ver postulaciones </a>
+            </div>
+
+
+
+            <div class="row">
+                <div class="form-group col-md-4 mt-2 mb-2">
+                    <p> <b>Titulo proyecto:</b> {{ title }}</p>
+                </div>
+                <div class="form-group col-md-4 mt-2 mb-2">
+                    <p><b>Descripción:</b> {{ description }}</p>
+                </div>
+
+                <div class="form-group col-md-4 mt-2 mb-2">
+                    <p><b>Costo: </b>{{ presupuesto }}</p>
+                </div>
+
+
+            </div>
+
+
+            <form [formGroup]="registerDetProyectoForm"
+                (ngSubmit)="postRegisterDetProyecto(registerDetProyectoForm.value)">
+
+
+
+                <div class="row">
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputDescription" class="mb-2">Describe tu experiencia</label>
+
+                        <textarea class="form-control" cols="10" rows="5" formControlName="detalle_inscription"
+                            placeholder="Descripción"></textarea>
+                        <div *ngIf="registerDetProyectoForm?.get('detalle_inscription')?.hasError('required')"
+                            class="error-message">
+                            Descripción es requerido.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputAniosExpe" class="mb-2">Años de experiencia</label>
+                        <input type="number" class="form-control" id="inputAniosExpe" placeholder="Años de experiencia"
+                            formControlName="anio_experiencia">
+
+                        <div *ngIf="registerDetProyectoForm?.get('anio_experiencia')?.hasError('required')"
+                            class="error-message">
+                            Años de experiencia es requerido.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputDisponibilidad" class="mb-2">Tiene disponibilidad inmediata</label>
+
+                        <input type="text" class="form-control" id="inputDisponibilidad" placeholder="Disponibilidad"
+                            formControlName="disponibilidad">
+                        <div *ngIf="registerDetProyectoForm?.get('disponibilidad')?.hasError('required')"
+                            class="error-message">
+                            Este campo es requerido.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputDate" class="mb-2">Fecha</label>
+                        <input type="date" class="form-control" id="inputDate" placeholder="Fecha"
+                            formControlName="date_inscription" readonly>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mt-2 mb-2 btn-register">Postular</button>
+            </form>
+
+            <div *ngIf="errorMessage" class="alert alert-primary" role="alert">
+                {{ errorMessage }}
+            </div>
+
+
+        </main>
+        <app-footer></app-footer>
+    </div>
+</div>

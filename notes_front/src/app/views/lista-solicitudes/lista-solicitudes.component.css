@@ -1,0 +1,10 @@
+
+.container-fluid>.row{
+    padding-top: 60px;
+
+  }
+.btn-primary{
+    background:#1b5496;
+    border: 1px solid #1b5496;
+}
+  

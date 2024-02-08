@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar">
+            <app-menu-user></app-menu-user>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+            <h2>Lista de proyectos</h2>
+            <p>Verificar Solicitudes de proyectos.</p>
+
+            <div *ngIf="errorMessage" class="alert alert-secondary" role="alert">
+                {{ errorMessage }}
+            </div>
+
+
+
+            <div class="row">
+
+                <div *ngFor="let proyecto of listaproyectos; let i = index" class="box-actividades col-sm-3">
+                    <p><b>{{ proyecto.title }}</b> </p>
+                    <hr>
+                    <p>{{ proyecto.description }}</p>
+                    <p>Presupuesto CLP$: {{ proyecto.presupuesto }}</p>
+                    <p>{{ proyecto.state ? 'Finalizado' : 'En proceso' }}</p>
+                    <div class="text-center p-3" *ngIf="proyecto.state === null || +proyecto.state === 0">
+                        <a class="btn btn-primary" (click)="viewProyecto(proyecto.id)">Postular</a>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+        <app-footer></app-footer>
+    </div>
+</div>

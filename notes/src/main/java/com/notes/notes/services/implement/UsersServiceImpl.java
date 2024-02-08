@@ -53,11 +53,6 @@ public class UsersServiceImpl implements UserService {
     @Override
     public Users createUser(Users newUser) {
         
-         /*if (userRepository.existsByEmail(newUser.getEmail())) {
-          throw new
-          EmailAlreadyExistsException("El correo electrónico ya está en uso.");
-         }*/
-         
         return userRepository.save(newUser);
     }
 

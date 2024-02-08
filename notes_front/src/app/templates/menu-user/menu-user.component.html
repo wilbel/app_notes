@@ -1,0 +1,133 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <a class="navbar-brand desvanecer-desk" href="#">
+        <img src="assets/images/logo1.png" id="icon" alt="User Icon" width="70" /></a>
+    <div class="collapse navbar-collapse" style="display: flex;justify-content: flex-end;max-height: 100vh;">
+        <ul class="header-menu">
+            <li class="nav-item" style="border-right: 1px solid #fff; padding-right: 10px;">
+                <a class="nav-link" (click)="redirectToProfile(codigo_user)">
+                    <i class="fas fa-user"></i> {{ nombreUser }} 
+                </a>
+            </li>
+            <li class="nav-item" style="border-right: 1px solid #fff;padding-right: 10px;">
+                <a class="nav-link" href="#">{{ rol }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="logout()"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>
+            </li>
+        </ul>
+        <button (click)="toggleSidebar()" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i style="color: #1b5496;" class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Menú lateral izquierdo -->
+        <!--nav class="col-md-2 sidebar"-->
+
+
+        <nav class="col-md-2 sidebar" [ngClass]="{'collapsed': sidebarCollapsed}">
+
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <!--li class="nav-item"-->
+
+                    <li class="nav-item">
+                        <a class="nav-link active" (click)="redirectTodashboard()">
+                            <span><i class="fas fa-home"></i></span> <span>Inicio</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item" *ngIf="isAdmin">
+                        <a class="nav-link" (click)="redirectToListaUsers()">
+                            <span></span><i class="fas fa-user"></i> <span>Usuarios</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item" *ngIf="isAdmin">
+                        <a class="nav-link" (click)="redirectToListaSolicitudes()">
+                            <span><i class="fas fa-user-check"></i></span> <span>Verificar Solicitudes</span></a>
+                    </li>
+
+
+                    <li class="nav-item" *ngIf="isAdmin">
+                        <a class="nav-link" (click)="redirectToListaSolicitudesVecinales()">
+                            <span><i class="fas fa-user-check"></i></span> <span>Solicitudes vecinales</span></a>
+                    </li>
+
+
+                    <li class="nav-item" *ngIf="isAdmin">
+                        <a class="nav-link" (click)="redirectToNotice()">
+                            <span><i class="far fa-newspaper"></i></span> <span>Publicar noticias</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item" *ngIf="isAdmin">
+                        <a class="nav-link" (click)="redirectToActividadBarrial()">
+                            <span><i class="fas fa-people-carry"></i></span> <span>Actividades barriales</span>
+                        </a>
+                    </li>
+
+
+                    <!--li class="nav-item" *ngIf="isAdmin">
+                        <a class="nav-link" href="#">
+                            <span> <i class="far fa-check-square"></i></span> <span>Verificar proyectos</span>
+                        </a>
+                    </li-->
+
+
+                    <li class="nav-item" *ngIf="isAdmin">
+                        <a class="nav-link" (click)="redirectToRegisterProyecto()">
+                            <span> <i class="far fa-check-square"></i></span> <span>Registrar proyectos</span>
+                        </a>
+                    </li>
+
+
+                    <!-- Menu para usuarios -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="redirectToSolicitudResidencia()">
+                            <span><i class="far fa-address-card"></i></span> <span>Solicitud de residencia</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="redirectToDownload()">
+                            <span> <i class="fas fa-download"></i></span><span>Descargas</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="redirectToShowProyectos()">
+                            <span><i class="fas fa-edit"></i></span> <span>Postulación de proyectos</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="redirectToAddSolicitudVecinal()">
+                            <span><i class="fas fa-edit"></i></span> <span>Solicitud vecinal </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="redirectToShowActividadBarrial()">
+                            <span><i class="far fa-eye"></i></span> <span>Ver Actividades Barriales</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="redirectToShowNotice()">
+                            <span><i class="far fa-eye"></i></span> <span>Ver noticias</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

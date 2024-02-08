@@ -1,0 +1,24 @@
+.register-title-box{
+    margin-top:10px;
+    padding: 5px 20px;
+    background: rgb(241, 241, 241);
+}
+
+.register-title-box>h3{
+   color:#1b5496;
+   font-size: 28px;
+}
+
+.btn-register{
+    background: #003d7a;
+    color: #ffffff;
+    border: 2px solid #003d7a;
+    width: 150px;
+}
+
+.margin-principal{
+    margin:30px 0;
+}
+.error-message {
+    color: red;
+  }

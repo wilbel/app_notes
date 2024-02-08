@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar">
+            <app-menu-user></app-menu-user>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+            <h2 class="text-center">Cronograma de actividades</h2>
+            <div class="row">
+
+                <div *ngFor="let datos of actividadBarrial; let i = index" class="box-actividades col-sm-3">
+                    <p><b>{{ datos.title }}</b> </p>
+                    <hr>
+                    <h6><b>{{ (datos.date)| date:'dd/MM/yyyy HH:mm:ss' }}</b></h6>
+                    <p>{{ datos.description }}</p>
+                    <p>Costo CLP$: {{ datos.cost }}</p>
+                  
+                    <p>Cupos restantes: {{ datos.cupos !== null && datos.cupos !== undefined ? (+datos.cupos === 0 ? 'Cupos agotados' : datos.cupos) : 'No disponible' }}</p>
+
+                   
+
+                    <div class="text-center p-3">
+                        <a *ngIf="datos.cupos !== null && +datos.cupos !== 0" class="btn btn-primary" (click)="viewActividadBarrial(datos.id)">Inscribirse</a>
+                      </div>
+                      
+
+                </div>
+            </div>
+        </main>
+        <app-footer></app-footer>
+    </div>
+</div>

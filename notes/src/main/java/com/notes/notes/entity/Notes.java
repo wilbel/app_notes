@@ -1,4 +1,5 @@
 package com.notes.notes.entity;
+import java.sql.Time;
 import java.util.Date;
 import jakarta.persistence.*;
 
@@ -25,6 +26,7 @@ public class Notes {
     private String description;
     private Date date;
     private Date reminder_date;
+    private Time hora;
      
     
 }

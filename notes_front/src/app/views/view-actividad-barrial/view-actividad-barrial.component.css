@@ -1,0 +1,25 @@
+.container-fluid>.row {
+    padding-top: 60px;
+}
+
+.box-actividades{
+    background: rgb(241, 244, 243);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.box-actividades>p{
+    line-height: 6px;
+
+}
+
+.btn-primary{
+    background: rgb(235 153 26);
+    border:1px solid rgb(235 153 26);
+ 
+}
+
+.row {
+    justify-content: center;
+}

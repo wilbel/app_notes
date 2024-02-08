@@ -46,9 +46,10 @@ public class NotesServiceImpl implements NotesService {
             update_notes.setDescription(updateNotes.getDescription());
             update_notes.setDate(updateNotes.getDate());
             update_notes.setReminder_date(updateNotes.getReminder_date());
+            update_notes.setHora(updateNotes.getHora());
             return notesRepository.save(update_notes);
         } else {
-            log.info("El usuario no existe");
+            log.info("Not no existe");
         }
         return null;
     }

@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar">
+            <app-menu-user></app-menu-user>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+
+            <h2>Solicitar Proyectos Vecinales</h2>
+           
+
+            <div class="alert alert-secondary" role="alert">
+                Ingresar los datos correspondientes para realizar una solicitud. <a href="/lista_single_solicitud_vecinal/{{id_user}}">
+                    Ver solicitudes </a>
+            </div>
+
+
+            <form [formGroup]="registerSolicitudesBarrialesForm"
+                (ngSubmit)="postRegisterSolicitudesVecinal(registerSolicitudesBarrialesForm.value)">
+               
+               
+                <div class="row">
+
+
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputSolicitantes" class="mb-2">Solicitantes</label>
+                        <input type="text" class="form-control" id="inputSolicitantes" placeholder="Solicitantes"
+                            formControlName="solicitantes">
+                    </div>
+
+
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputTitle" class="mb-2">Título</label>
+                        <input type="text" class="form-control" id="inputTitle" placeholder="Título"
+                            formControlName="title">
+                    </div>
+
+
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputDate_solicitud" class="mb-2">Fecha</label>
+                        <input type="date" class="form-control" id="inputDate_solicitud" placeholder="Fecha"
+                            formControlName="date_solicitud" readonly>
+                    </div>
+
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputPlace" class="mb-2">Lugar</label>
+                        <input type="text" class="form-control" id="inputPlace" placeholder="Lugar"
+                            formControlName="place">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12 mt-2 mb-2">
+                        <label for="inputDescription" class="mb-2">Descripción</label>
+                        <textarea class="form-control" cols="10" rows="5" formControlName="description"
+                            placeholder="Descripción"></textarea>
+                    </div>
+                </div>
+
+
+
+              
+                <button type="submit" class="btn btn-primary mt-2 mb-2 btn-register">Solicitar</button>
+            </form>
+            <div *ngIf="errorMessage" class="alert alert-primary" role="alert">
+                {{ errorMessage }}
+            </div>
+        </main>
+        <app-footer></app-footer>
+    </div>
+</div>

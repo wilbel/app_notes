@@ -1,0 +1,97 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar">
+            <app-menu-user></app-menu-user>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+
+            <h2>Crear Solicitud de Residencia</h2>
+            <div class="alert alert-secondary" role="alert">
+                Completa los datos faltantes para poder gestionar tu solicitud de residencia. <a href="/downloads">
+                    Verificar mis solicitudes </a>
+            </div>
+            <form [formGroup]="registerSolicitudForm" (ngSubmit)="postRegisterSolicitud(registerSolicitudForm.value)">
+
+                <input type="hidden" formControlName="id_junta" readonly>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputNumOrganizarion" class="mb-2">Número de Junta</label>
+                        <input type="text" class="form-control" id="inputNumOrganizarion"
+                            placeholder="Número de organización" formControlName="num_organization" readonly>
+                    </div>
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputOrganizarion" class="mb-2">Nombre de la Junta</label>
+                        <input type="text" class="form-control" id="inputOrganizarion"
+                            placeholder="Nombre de organización" formControlName="name_organization">
+                    </div>
+                </div>
+
+                <input type="hidden" formControlName="id_user" readonly>
+
+                <div class="row">
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputNombres" class="mb-2">Nombres</label>
+                        <input type="text" class="form-control" id="inputNombres" placeholder="Nombres"
+                            formControlName="nombres" readonly>
+                    </div>
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputCard" class="mb-2">Número de Identificación</label>
+                        <input type="text" class="form-control" id="inputCard" placeholder="Número de Identificación"
+                            formControlName="identification_card" readonly>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputNumCertificado" class="mb-2">Cod. Certificado</label>
+                        <input type="text" class="form-control" id="inputNumCertificado"
+                            placeholder="Número de Certificado" formControlName="certified_number" readonly>
+                    </div>
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputDate" class="mb-2">Fecha</label>
+                        <input type="text" class="form-control" id="inputDate" placeholder="Fecha"
+                            formControlName="date" readonly>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputSector" class="mb-2">Sector</label>
+                        <input type="text" class="form-control" id="inputSector" placeholder=""
+                            formControlName="sector">
+
+                        <div
+                            *ngIf="registerSolicitudForm && registerSolicitudForm.get('sector')?.hasError('required') && registerSolicitudForm.get('sector')?.touched">
+                            El sector es obligatorio.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 mt-2 mb-2">
+                        <label for="inputComuna" class="mb-2">Comuna</label>
+                        <input type="text" class="form-control" id="inputComuna" placeholder=""
+                            formControlName="commune">
+                    </div>
+                </div>
+
+                <div class="form-group mt-2 mb-2">
+                    <label for="inputStreet" class="mb-2">Calles</label>
+                    <input type="text" class="form-control" id="inputStreet" placeholder="" formControlName="streets">
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2 mb-2 btn-register">Solicitar</button>
+
+            </form>
+
+
+            <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                {{ errorMessage }}
+            </div>
+
+
+        </main>
+        <app-footer></app-footer>
+    </div>
+</div>

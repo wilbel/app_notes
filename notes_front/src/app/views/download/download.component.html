@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar">
+            <app-menu-user></app-menu-user>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+            <h2>Descargas</h2>
+            <p>Solicitudes de Residencia.</p>
+            <table class="table table-striped  table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Fecha</th>
+                        <th>Num. Certificado</th>
+                        <th>Sector</th>
+                        <th>Comuna</th>
+                        <th>Estado</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let solicitud of solicitudesDeResidencia;; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ solicitud?.date | date:'yyyy-MM-dd' }}</td>
+                        <td>{{ solicitud.certified_number }}</td>
+                        <td>{{ solicitud.sector }}</td>
+                        <td>{{ solicitud.commune }}</td>
+                        <td>{{ solicitud.state ? 'Aprobado' : 'En proceso' }}</td>
+                        <td>
+                            <ng-container *ngIf="solicitud.state;">
+                                <a class="btn btn-primary btn-sm m-1" href="">Descargar</a>
+                            </ng-container>
+                            <a class="btn btn-danger btn-sm m-1" href="">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <app-footer></app-footer>
+    </div>
+</div>

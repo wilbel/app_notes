@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar">
+            <app-menu-user></app-menu-user>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+            <h2 class="text-center">Noticias</h2>
+            <div class="row">
+                <div *ngFor="let datos of notice; let i = index">
+
+                    <div class="box-notice">
+                        <h2>{{ datos.title }}</h2>
+                        <td>
+                            <img *ngIf="datos.image" src="data:image/png;base64,{{ datos.image }}" alt="Imagen" width="170">
+                          </td>
+                        <hr>
+                        <small><b> Fecha: {{ datos.date | date:'yyyy-MM-dd' }}</b></small>
+                        <p>{{ datos.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <app-footer></app-footer>
+    </div>
+</div>
