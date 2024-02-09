@@ -23,4 +23,14 @@ export class HeaderComponent {
     this.router.navigate(['login']);
   }
 
+  getCurrentLocalTime(): string {
+    const now = new Date();
+    const options: Intl.DateTimeFormatOptions = { 
+      hour: 'numeric', 
+      minute: 'numeric', 
+      second: 'numeric', 
+      hour12: false 
+    };
+    return now.toLocaleTimeString(undefined, options);
+  }
 }

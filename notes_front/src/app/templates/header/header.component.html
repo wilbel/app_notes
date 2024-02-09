@@ -1,25 +1,25 @@
 <div class="container-fluid">
-    <div class="title-header">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h1>TTB - TimeToRemember</h1>
-            </div>
-        </div>
-    </div>
+    <nav class="navbar navbar-expand-lg title-header">
+        <a class="navbar-brand" href="#">TTB - TimeTo<span>Remember</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
 
-    <nav class="menu">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-              
-                <div class="col-md-6">
-                    <div class="" id="">
-                        <div class="menu-description">
-                            <a class="nav-item nav-link" (click)=" redirectToRegister()" >Registrar</a>
-                            <a class="nav-item nav-link" (click)=" redirectToSession()" >Iniciar Sesión</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" (click)=" redirectToRegister()"><i class="fas fa-users"></i> Unete a nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" (click)=" redirectToSession()"><i class="fas fa-user-circle"></i> Iniciar Sesión</a>
+                </li>
+
+            </ul>
         </div>
     </nav>
+</div>
+
+<div class="fondo-submenu">
+    <span> <i class="far fa-clock"></i> {{ getCurrentLocalTime() }} </span>
 </div>

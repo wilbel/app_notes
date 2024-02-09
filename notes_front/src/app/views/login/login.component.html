@@ -4,22 +4,24 @@
     <!-- Tabs Titles -->
 
     <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="assets/images/logo.png" id="icon" alt="User Icon" />
+    <div class="fadeIn first logo-icon">
+
+      <span><i class="fas fa-user-shield"></i></span>
+      <h1 class="logo-session" href="#">TimeTo<span>Remember</span></h1>
     </div>
 
     <!-- Login Form -->
     <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
-      <input type="text" id="login" class="fadeIn second"  placeholder="Usuario" formControlName="username">
-      <input type="password" id="password" class="fadeIn third"  placeholder="Contraseña" formControlName="password">
+      <input type="text" id="login" class="fadeIn second" placeholder="Usuario" formControlName="username">
+      <input type="password" id="password" class="fadeIn third" placeholder="Contraseña" formControlName="password">
       <input type="submit" class="fadeIn fourth" value="Ingresar">
-  
-  
+
+
       <div *ngFor="let mensaje of mensajesError" class="error-message">
         {{ mensaje }}
-    </div>
-  
-  
+      </div>
+
+
     </form>
 
     <!-- Remind Passowrd -->

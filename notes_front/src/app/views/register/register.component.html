@@ -4,9 +4,11 @@
 
 
         <div class="col-md-5 d-flex flex-column align-items-center justify-content-center">
-  
+
+            <img src="assets/images/reloj.jpg" alt="" width="360">
             <h1>TTB</h1>
-            <p class="text-center">Únete ahora y descubre la emoción de organizar tu vida con nuestra aplicación. Regístrate para crear
+            <p class="text-center">
+                Regístrate para crear
                 recordatorios únicos que podrás compartir fácilmente con tus amigos y seres queridos. ¡Haz que cada
                 momento cuente y mantente conectado con aquellos que más importan en tu vida!</p>
         </div>
@@ -14,12 +16,13 @@
 
 
 
-        <div class="col-md-5">
+        <div class="col-md-5 form-register">
+
             <div class="register-title-box">
                 <h3>Registrar Usuario</h3>
             </div>
 
-            <form [formGroup]="registerForm" (ngSubmit)="postRegister(registerForm.value)">
+            <form [formGroup]="registerForm" (ngSubmit)="postRegister(registerForm.value)" class="form-primary">
 
                 <div *ngFor="let mensaje of mensajesError" class="error-message">
                     {{ mensaje }}
