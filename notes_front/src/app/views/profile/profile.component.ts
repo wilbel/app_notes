@@ -15,6 +15,10 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router, private userapi: UserService, private route: ActivatedRoute, private apiService: ApiService) { }
   errorMessage: string | null = null;
   isAdmin: boolean = false; 
+  previewImage: string | undefined;
+  selectedImage: File | null = null;
+
+
 
   registerUserForm = new FormGroup({
     id: new FormControl('', Validators.required),
@@ -46,6 +50,27 @@ export class ProfileComponent implements OnInit {
       this.getUserSingleId(id);
     });
   }
+
+
+
+  handleImageChange(event: any): void {
+    const file = event.target.files[0];
+    console.log(file);
+    this.selectedImage = file;
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.previewImage = e.target.result;
+        const base64Image = e.target.result.split(',')[1];
+        this.registerUserForm.get('image')?.setValue(base64Image);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+
+
 
   esAdmin(rol: string | null): any {
     console.log(rol);

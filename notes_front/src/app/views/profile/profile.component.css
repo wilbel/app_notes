@@ -25,10 +25,32 @@
   form{
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #bababa;
+    border: 1px solid #ffffff;
   }
 
   .form-control{
     border: var(--bs-border-width) solid #585858;
     z-index: 0;
   }
+
+  .imagen_user{
+    width: 260px;
+    height: 100px;
+  }
+
+  .cuadro_imagen_usuario {
+    border: 1px solid #000; 
+    display: inline-block; 
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; 
+    overflow: hidden;
+}
+
+
+.btn-image{
+  border:1px solid #f0f0f0;
+  background: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px!important;
+}

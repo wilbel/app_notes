@@ -20,6 +20,7 @@ export class MenuUserComponent implements OnInit {
   ngOnInit(): void {
 
     let usersUsername = (localStorage.getItem('username'));
+    console.log(usersUsername);
     this.apiuser.getSingleUser(usersUsername).subscribe(data => {
       console.log(data);
       this.rol = data.rol;
@@ -31,8 +32,6 @@ export class MenuUserComponent implements OnInit {
     this.checkLocalStorage();
 
   }
-
-
 
   toggleSidebar() {
     this.sidebarCollapsed = !this.sidebarCollapsed;

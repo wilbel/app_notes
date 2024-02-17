@@ -26,6 +26,7 @@ public class Users implements UserDetails {
     private Long id;
     private String firstName;
     private String lastName;
+    
     @Lob
     @Column(columnDefinition = "BLOB")
     private byte[] image;

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -36,7 +37,16 @@ public class AuthService {
         private validations registerRequestValidator;//Validaciones
 
         public AuthResponse login(LoginRequest request) {
-                try {
+
+                List<String> errorMessagesUser = new ArrayList<>();
+                errorMessagesUser.add("Usuario no encontrado");
+                List<String> errorMessagesLogin = new ArrayList<>();
+                errorMessagesLogin.add("Usuario o contraseña incorrectos");
+                List<String> errorMessagesAuth = new ArrayList<>();
+                errorMessagesAuth.add("Error de autenticación");
+                List<String> errorMessagesEx = new ArrayList<>();
+                errorMessagesEx.add("Error interno del servidor");
+                      try {
                         authenticationManager
                                         .authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(),
                                                         request.getPassword()));
@@ -45,17 +55,34 @@ public class AuthService {
                         String token = jwtService.getToken(user);
                         return AuthResponse.builder()
                                         .token(token)
+                                        .username(request.getUsername())
                                         .success(true)
                                         .build();
+
+                } catch (UsernameNotFoundException usernameNotFoundException) {
+                        return AuthResponse.builder()
+                                        .success(false)
+                                        .errorMessages(errorMessagesUser)
+                                        .build();
+
+                } catch (BadCredentialsException badCredentialsException) {
+                        return AuthResponse.builder()
+                                        .success(false)
+                                        .errorMessages(errorMessagesLogin)
+                                        .build();
+
                 } catch (AuthenticationException e) {
                         return AuthResponse.builder()
                                         .success(false)
+                                        .errorMessages(errorMessagesAuth)
                                         .build();
                 } catch (Exception e) {
                         return AuthResponse.builder()
                                         .success(false)
+                                        .errorMessages(errorMessagesEx)
                                         .build();
                 }
+               
         }
 
        

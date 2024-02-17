@@ -2,6 +2,20 @@ body {
   padding-top: 56px;
 }
 
+nav.title-header>a {
+  color: #2e669b;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+nav.title-header>a>span {
+  color: #ffc800;
+
+}
+
+
+
+
 .sidebar {
   position: fixed;
   top: 56px;
@@ -38,12 +52,12 @@ body {
 
 .navbar-expand-md .navbar-collapse {
   justify-content: right;
-  background: #1b5496;
+  background: #2e669b;
 
 }
 
 .navbar-nav>li>a {
-  color: #ffffff;
+  color: #1b5496;
 }
 
 .navbar {
@@ -64,7 +78,7 @@ body {
   margin-right: 0;
   margin-top: 0;
   padding: 6px;
-  background: #1b5496;
+  background: #f3f3f3;
   width: 16.66666667%;
   color: #ffffff;
   text-align: center;
@@ -76,7 +90,7 @@ body {
 
 .navbar {
 
-  background: #1b5496;
+  background: #2e669b;
 
 }
 

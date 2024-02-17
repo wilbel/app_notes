@@ -62,4 +62,16 @@ public class UsersServiceImpl implements UserService {
         throw new UnsupportedOperationException("Unimplemented method 'login'");
     }
 
+    @Override
+    public Users getUsersById(Long id) {
+
+        return userRepository.findById(id).get();
+
+    }
+
+    @Override
+    public Users getUsersByUsername(String username) {
+        return userRepository.findUserByUsername(username).get();
+    }
+
 }

@@ -4,10 +4,10 @@
             <app-menu-user></app-menu-user>
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
-            <h2>Perfil</h2>
-            
+            <h2>Perfil de Usuario</h2>
+
             <div class="alert alert-secondary" role="alert">
-                Modificiar Usuarios. 
+                Modificiar Usuarios.
             </div>
 
             <div *ngIf="errorMessage" class="error-message-unit">
@@ -21,12 +21,32 @@
 
                 <input type="hidden" id="id" formControlName="id">
 
+
+
+                <div class="row">
+                    <div class="form-group col-md-12 mt-2 mb-2 text-center">
+                            <div class="cuadro_imagen_usuario">
+                                <div class="imagen_user" *ngIf="previewImage">
+                                    <img [src]="previewImage" alt="Preview" class="imagen_user">
+                                </div>
+                            </div>
+                            <input type="file" class="form-control visually-hidden" id="inputImage"
+                                (change)="handleImageChange($event)" accept="image/*">
+                            <label class="btn-image" for="inputImage"> <i class="fas fa-camera"></i></label>
+                        </div>
+                </div>
+
+
+
+
+
+
                 <div class="row">
                     <div class="form-group col-md-6 mt-2 mb-2">
                         <label for="inputName" class="mb-2">Nombre:</label>
                         <input type="text" class="form-control" id="inputName" formControlName="firstName">
 
-                        <div *ngIf="registerUserForm?.get('firstName')?.hasError('required')" class="error-message" >
+                        <div *ngIf="registerUserForm?.get('firstName')?.hasError('required')" class="error-message">
                             Nombre es requerido.
                         </div>
 
@@ -35,27 +55,8 @@
                     <div class="form-group col-md-6 mt-2 mb-2">
                         <label for="inputLastName" class="mb-2">Apellido</label>
                         <input type="text" class="form-control" id="inputLastName" formControlName="lastName">
-                        <div *ngIf="registerUserForm?.get('lastName')?.hasError('required')" class="error-message" >
+                        <div *ngIf="registerUserForm?.get('lastName')?.hasError('required')" class="error-message">
                             Apellido es requerido.
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="form-group col-md-6 mt-2 mb-2">
-                        <label for="inputIdentification_card" class="mb-2">Identificación</label>
-                        <input type="text" class="form-control" id="inputIdentification_card"
-                            formControlName="identification_card">
-                            <div *ngIf="registerUserForm?.get('identification_card')?.hasError('required')" class="error-message" >
-                                Identificación es requerida.
-                            </div>
-                    </div>
-                    <div class="form-group col-md-6 mt-2 mb-2">
-                        <label for="inputAddress" class="mb-2">Dirección</label>
-                        <input type="text" class="form-control" id="inputComuna" formControlName="address">
-                        <div *ngIf="registerUserForm?.get('address')?.hasError('required')" class="error-message" >
-                            Dirección es requerida.
                         </div>
                     </div>
                 </div>
@@ -65,38 +66,34 @@
                     <div class="form-group col-md-6 mt-2 mb-2">
                         <label for="inputEmail" class="mb-2">Email</label>
                         <input type="text" class="form-control" id="inputEmail" formControlName="email">
-                        <div *ngIf="registerUserForm?.get('email')?.hasError('required')" class="error-message" >
+                        <div *ngIf="registerUserForm?.get('email')?.hasError('required')" class="error-message">
                             Email es requerido.
                         </div>
                     </div>
+
+
+
                     <div class="form-group col-md-6 mt-2 mb-2">
-                        <label for="inputTelf" class="mb-2">Teléfono</label>
-                        <input type="text" class="form-control" id="inputTelf" formControlName="telf">
-                        <div *ngIf="registerUserForm?.get('telf')?.hasError('required')" class="error-message" >
-                            Teléfono es requerido.
+                        <label for="inputAddress" class="mb-2">Dirección</label>
+                        <input type="text" class="form-control" id="inputComuna" formControlName="address">
+                        <div *ngIf="registerUserForm?.get('address')?.hasError('required')" class="error-message">
+                            Dirección es requerida.
                         </div>
                     </div>
                 </div>
 
 
-                <div class="row"     *ngIf="isAdmin">
-                    <div class="form-group col-md-6 mt-2 mb-2">
-                        <label for="inputRol" class="mb-2">Estado</label>
-                        <select class="form-control" id="inputRol" formControlName="status">
-                            <option value="true">Activo</option>
-                            <option value="false">Desactivado</option>
-                        </select>
-                        <div *ngIf="registerUserForm?.get('status')?.hasError('required')" class="error-message" >
-                            Estado es requerido.
-                        </div>
-                    </div>
+              
+
+                <div class="row" *ngIf="isAdmin">
+                  
 
                     <div class="form-group col-md-6 mt-2 mb-2">
                         <label for="inputRol" class="mb-2">Rol</label>
                         <select class="form-control" id="inputRol" formControlName="rol">
                             <option value="ADMIN">Administrador</option>
                             <option value="USER">Usuario</option>
-                            <div *ngIf="registerUserForm?.get('rol')?.hasError('required')" class="error-message" >
+                            <div *ngIf="registerUserForm?.get('rol')?.hasError('required')" class="error-message">
                                 Nombre de usuario es requerido.
                             </div>
                         </select>
@@ -104,17 +101,18 @@
                 </div>
 
                 <div class="row">
-                    
+
                     <div class="form-group col-md-6 mt-2 mb-2">
                         <label for="inputUsername" class="mb-2">Nombre Usuario</label>
                         <input type="text" class="form-control" id="inputUsername" formControlName="username">
-                        <div *ngIf="registerUserForm?.get('username')?.hasError('required')" class="error-message" >
+                        <div *ngIf="registerUserForm?.get('username')?.hasError('required')" class="error-message">
                             Nombre de usuario es requerido.
                         </div>
                     </div>
 
                     <div class="form-group col-md-6 mt-2 mb-2">
-                        <label for="inputPassw" class="mb-2">Contraseña (Si no vas a modificar la contraseña deja este campo vacio)</label>
+                        <label for="inputPassw" class="mb-2">Contraseña (Si no vas a modificar la contraseña deja este
+                            campo vacio)</label>
                         <input type="password" class="form-control" id="inputPassw" formControlName="password">
                         <!--div *ngIf="registerUserForm?.get('password')?.hasError('required')" class="error-message" >
                             Contraseña es requerida.

@@ -27,11 +27,21 @@ public class UsersController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/listausers")
     public List<Users> getAllUsers() {
         return userService.getAllUsers();
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Users> getUsersById(@PathVariable Long id) {
+        Users getUsersId =  userService.getUsersById(id);
+        return ResponseEntity.ok(getUsersId);
+    }
 
+    @GetMapping("/find/{username}")
+    public ResponseEntity<Users> getUsersByUsername(@PathVariable String username) {
+        Users getUserUsername = userService.getUsersByUsername(username);
+        return ResponseEntity.ok(getUserUsername);
+    }
 
     @PostMapping("/save")
     public ResponseEntity<Object> createUser(@RequestBody Users newUser) {

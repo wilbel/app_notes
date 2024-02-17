@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   onLogin(form: Partial<LoginI>) {
 
     this.api.loginUser(form).subscribe(data => {
-      console.log(data);
+      console.log(data.token);
       if (data.success) {
 
         localStorage.setItem("token", data.token);
